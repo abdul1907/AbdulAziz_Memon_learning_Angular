@@ -1,10 +1,10 @@
-type Timestamp = string & { formattedDay : string};
+type DateTime = string & { DisplayFormat : string};
 
 export interface TideNode {
-    id : number;
-    taskName : string;
-    priority : 'low' | 'medium' | 'high';
-    dueDate : Timestamp;
-    effort : number;
-    shiftNode?: string;
+    taskId : number;
+    taskDescription : string;
+    taskPriority : 'low' | 'medium' | 'high';
+    taskDueDate : DateTime;
+    taskEffort : number;
+    taskShiftReason?: string;
 }
