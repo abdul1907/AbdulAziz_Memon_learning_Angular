@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/Assignment_2
 export interface TideNode {
     taskId : number;
     taskDescription : string;
