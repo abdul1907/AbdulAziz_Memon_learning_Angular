@@ -1,4 +1,3 @@
-type DateTime = string & { DisplayFormat : string};
 
 export interface TideNode {
     taskId : number;
