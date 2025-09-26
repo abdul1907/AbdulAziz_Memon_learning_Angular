@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TideNode } from './Models/TideNode.Interface';
+import { TideNode } from './Models/tidenode.interface';
 
 @Component({
   selector: 'app-root',
