@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { TideNode } from '../Models/tidenode.interface';
+import { TaskListItem } from "../task-list-item/task-list-item";
 
 @Component({
   selector: 'app-task-list',
-  imports: [],
+  imports: [TaskListItem],
   templateUrl: './task-list.html',
   styleUrl: './task-list.css'
 })
