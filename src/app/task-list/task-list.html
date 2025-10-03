@@ -1,6 +1,3 @@
-<app-task-list-item 
-  *ngFor="let tideNode of tideNodes; let i = index" 
-  [task]="tideNode"
-  [class.even-item]="i % 2 === 0"
-  [class.odd-item]="i % 2 === 1">
-</app-task-list-item>
+@for (tideNode of tideNodes; track tideNode.taskId; let i = $index) {
+  <app-task-list-item [task]="tideNode"></app-task-list-item>
+}

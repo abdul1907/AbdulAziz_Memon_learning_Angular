@@ -1,8 +1,34 @@
-<div class="task-list-item">
-    <h2>{{ task.taskDescription }}</h2>
-        <p>Priority: {{ task.taskPriority }}</p>
-        <p>Due Date: {{ task.taskDueDate }}</p>
-        <p>Effort: {{ task.taskEffort }}</p>
-        <p *ngIf="task.taskShiftReason"> Shift Reason: {{ task.taskShiftReason }}</p>
-        
+<div class="task-list-item" [ngClass]="{'even-item': task.taskId % 2 === 0, 'odd-item': task.taskId % 2 === 1}">
+    <div class="task-image-container">
+        <img [src]="'images/task-' + ((task.taskId % 2) + 1) + '.png'" 
+             [alt]="task.taskDescription"
+             class="task-image">
+    </div>
+    <div class="task-content">
+        <div class="task-header">
+            <h2 class="task-title">{{ task.taskDescription }}</h2>
+            <span class="task-id">#{{ task.taskId }}</span>
+        </div>
+        <div class="task-details">
+            <div class="detail-row">
+                <span class="priority-badge priority-{{ task.taskPriority }}">
+                    {{ task.taskPriority.toUpperCase() }}
+                </span>
+                <span class="detail-item">
+                    <i class="icon">📅</i>
+                    {{ task.taskDueDate }}
+                </span>
+                <span class="detail-item">
+                    <i class="icon">⏱️</i>
+                    {{ task.taskEffort }}h
+                </span>
+            </div>
+            <div class="shift-section" *ngIf="task.taskShiftReason">
+                <span class="shift-indicator">
+                    <i class="icon">🌊</i>
+                    Tide Shift: {{ task.taskShiftReason }}
+                </span>
+            </div>
+        </div>
+    </div>
 </div>
