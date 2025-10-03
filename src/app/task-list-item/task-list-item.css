@@ -1,6 +1,14 @@
-.task-item {
+.task-list-item {
     border: 2px solid #333;
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
-  }
+}
+
+.even-item {
+    background-color: #ffc0cb; /* pink */
+}
+
+.odd-item {
+    background-color: #008080; /* teal */
+}

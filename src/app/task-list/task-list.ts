@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { TideNode } from '../Models/tidenode.interface';
 import { TaskListItem } from "../task-list-item/task-list-item";
 
 @Component({
   selector: 'app-task-list',
-  imports: [TaskListItem],
+  imports: [TaskListItem, CommonModule],
   templateUrl: './task-list.html',
   styleUrl: './task-list.css'
 })

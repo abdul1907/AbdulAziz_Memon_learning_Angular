@@ -1,8 +1,8 @@
 <div class="task-list-item">
-    <h2>{{ task.taskDescription }}
+    <h2>{{ task.taskDescription }}</h2>
         <p>Priority: {{ task.taskPriority }}</p>
         <p>Due Date: {{ task.taskDueDate }}</p>
         <p>Effort: {{ task.taskEffort }}</p>
-        <p*ngIf="task.taskShiftReason"> Shift Reason: {{ task.taskShiftReason }}</p>
+        <p *ngIf="task.taskShiftReason"> Shift Reason: {{ task.taskShiftReason }}</p>
         
-    </h2>
+</div>

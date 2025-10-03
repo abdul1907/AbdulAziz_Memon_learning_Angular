@@ -1,1 +1,6 @@
-<p>task-list works!</p>
+<app-task-list-item 
+  *ngFor="let tideNode of tideNodes; let i = index" 
+  [task]="tideNode"
+  [class.even-item]="i % 2 === 0"
+  [class.odd-item]="i % 2 === 1">
+</app-task-list-item>
