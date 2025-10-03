@@ -1,0 +1,13 @@
+
+/* Assignment 14: Even/Odd backgrounds belong to ContentList (task-list) */
+.list-item {
+    border-radius: 12px;
+}
+
+.list-item.even-item {
+    background-color: #ffc0cb; /* pink */
+}
+
+.list-item.odd-item {
+    background-color: #008080; /* teal */
+}

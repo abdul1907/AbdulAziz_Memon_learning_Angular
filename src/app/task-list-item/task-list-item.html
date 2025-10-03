@@ -1,4 +1,4 @@
-<div class="task-list-item" [ngClass]="{'even-item': task.taskId % 2 === 0, 'odd-item': task.taskId % 2 === 1}">
+<div class="task-list-item">
     <div class="task-image-container">
         <img [src]="'images/task-' + ((task.taskId % 2) + 1) + '.png'" 
              [alt]="task.taskDescription"

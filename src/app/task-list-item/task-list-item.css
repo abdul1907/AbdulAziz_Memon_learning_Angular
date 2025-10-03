@@ -13,13 +13,7 @@
     background-color: transparent;
 }
 
-.even-item {
-    background-color: #ffc0cb !important; /* pink */
-}
-
-.odd-item {
-    background-color: #008080 !important; /* teal */
-}
+/* Even/Odd background colours now belong to task-list.css per assignment 14 */
 
 
 .task-list-item:hover {
