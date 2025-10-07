@@ -1,6 +1,9 @@
+@if (task) {
+
+
 <div class="task-list-item">
     <div class="task-image-container">
-        <img [src]="'images/task-' + ((task.taskId % 2) + 1) + '.png'" 
+        <img [src]="'images/task-' + ((task.taskId % 2) + 1) + '.png'"
              [alt]="task.taskDescription"
              class="task-image">
     </div>
@@ -32,3 +35,5 @@
         </div>
     </div>
 </div>
+
+}

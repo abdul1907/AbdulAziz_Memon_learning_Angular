@@ -11,5 +11,5 @@ import { TideNode } from '../Models/tidenode.interface';
   styleUrl: './task-list-item.css'
 })
 export class TaskListItem {
-  @Input() task!: TideNode;
+  @Input() task?: TideNode;
 }
