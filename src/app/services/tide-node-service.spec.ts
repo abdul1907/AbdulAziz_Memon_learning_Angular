@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TideNode } from './tide-node';
+import { TideNodeService } from './tide-node';
 
 describe('TideNode', () => {
-  let service: TideNode;
+  let service: TideNodeService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(TideNode);
+    service = TestBed.inject(TideNodeService);
   });
 
   it('should be created', () => {
