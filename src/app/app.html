@@ -5,6 +5,10 @@
     </header>
     
     <main class="main-content">
+        <div class="top-task">
+          <h2>Selected Task:</h2>
+          <app-task-list-item [task]="selectedTideNode"></app-task-list-item>
+        </div>
         <app-task-list></app-task-list>
     </main>
     
@@ -12,56 +16,3 @@
         <textarea class="required-textarea" readonly>This is a Required to be here</textarea>
     </footer>
 </div>
-<!-- 
-<div class="tasktide-container">
-  <header class="app-header">
-    <h1>TaskTide - Adaptive Workflow Organizer</h1>
-    <p class="subtitle">Managing tasks with dynamic tide shifts</p>
-  </header>
-
-
-  <div class="tasks-section">
-    
-    <div class="task-card" *ngFor="let task of tideNodes; let i = index">
-      
-
-      <div class="task-header">
-        <span class="task-id">#{{ task.taskId }}</span>
-        <span class="priority-badge priority-{{ task.taskPriority}}">
-          {{ task.taskPriority.toUpperCase() }}
-        </span>
-      </div>
-
-
-      <h3 class="task-title">{{ task.taskDescription }}</h3>
-
-
-      <div class="task-details">
-        <div class="detail-item">
-          <span class="label">Due Date:</span>
-          <span class="value">{{ task.taskDueDate }}</span>
-        </div>
-        
-        <div class="detail-item">
-          <span class="label">Effort:</span>
-          <span class="value">{{ task.taskEffort }} hours</span>
-        </div>
-      </div>
-
-
-      <div class="shift-section" *ngIf="task.taskShiftReason">
-        <div class="shift-indicator">
-          <span class="shift-icon">🌊</span>
-          <span class="shift-label">Tide Shift</span>
-        </div>
-        <p class="shift-reason">{{ task.taskShiftReason }}</p>
-      </div>
-    </div>
-  </div>
-
-  
-  <div class="empty-state" *ngIf="tideNodes.length === 0">
-    <h2>No tasks found</h2>
-    <p>Add some tasks to get started with TaskTide!</p>
-  </div>
-</div> -->
