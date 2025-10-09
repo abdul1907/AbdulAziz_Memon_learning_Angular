@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TideNode } from '../Models/tidenode.interface';
 import { TaskListItem } from "../task-list-item/task-list-item";
@@ -15,4 +15,11 @@ export class TaskList {
   tideNodes: TideNode[] = [];
 
   constructor(private tideNodeService: TideNodeService) { }
+  
+  ngOnInit(): void {
+    this.tideNodeService.getAllTideNodes().subscribe((tideNodes: TideNode[]) => {
+      this.tideNodes = tideNodes;
+      }
+    );
+  }
 }
