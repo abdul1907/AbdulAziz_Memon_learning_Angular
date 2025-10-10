@@ -9,7 +9,13 @@
           <h2>Selected Task:</h2>
           <app-task-list-item [task]="selectedTideNode"></app-task-list-item>
         </div>
-        <app-task-list (taskSelected)="onTaskSelected($event)"></app-task-list>
+        
+        <div class="task-list-section">
+          <h3 style="text-align: center; color: #2c3e50; margin-bottom: 20px; font-size: 1.3rem;">
+            📋 All Tasks - Click any task to select it
+          </h3>
+          <app-task-list (taskSelected)="onTaskSelected($event)"></app-task-list>
+        </div>
     </main>
     
     <footer class="app-footer">

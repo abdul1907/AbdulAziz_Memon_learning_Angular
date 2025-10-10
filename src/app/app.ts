@@ -27,6 +27,6 @@ export class AppComponent implements OnInit {
   }
 
   onTaskSelected(tideNode: TideNode): void {
-
+    this.selectedTideNode = tideNode;
   }
 }

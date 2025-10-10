@@ -1,13 +1,49 @@
 
-/* Assignment 14: Even/Odd backgrounds belong to ContentList (task-list) */
+/* Task List Styling - Clean and Professional */
 .list-item {
-    border-radius: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 8px 0;
+    padding: 12px;
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.list-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border-color: #007bff;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+}
+
+.list-item:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Priority-based color coding */
 .list-item.even-item {
-    background-color: #ffc0cb; /* pink */
+    border-left: 4px solid #28a745; /* Green for even items */
 }
 
 .list-item.odd-item {
-    background-color: #008080; /* teal */
+    border-left: 4px solid #ffc107; /* Yellow for odd items */
+}
+
+/* Add a subtle animation for better UX */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.list-item {
+    animation: fadeInUp 0.5s ease-out;
 }
