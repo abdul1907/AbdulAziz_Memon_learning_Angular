@@ -30,18 +30,14 @@ import { TaskListItem } from './task-list-item/task-list-item';
 // TideChartComponent: Component class for displaying tasks in a visual tide chart
 // './tide-chart/tide-chart': Relative path to the TideChartComponent
 import { TideChartComponent } from './tide-chart/tide-chart';
+import { TaskForm } from './task-form/task-form';
 
-// Component decorator: Defines this class as the root Angular component
-// @Component: Angular decorator function that adds metadata to the class
-// selector: 'app-root': This component is used as the root element in index.html
-// templateUrl: './app.html': Path to the HTML template file
-// styleUrl: './app.css': Path to the CSS styles file
-// imports: [CommonModule, TaskList, TaskListItem, TideChartComponent]: Imports other components and modules
+// Component decorator marks this as the root component
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
-  imports: [CommonModule, TaskList, TaskListItem, TideChartComponent]
+  imports: [CommonModule, TaskList, TaskListItem, TideChartComponent, TaskForm]
 })
 // AppComponent: Root component class that manages the entire application
 // export: Makes this class available for import in other files
@@ -111,9 +107,16 @@ export class AppComponent implements OnInit {
   }
 
   // Method to refresh all tide levels
-  // Called when user wants to recalculate tide levels for all tasks
   onTideLevelsRefreshed(): void {
-    // Reload all tide nodes to get updated tide levels
     this.loadAllTideNodes();
+  }
+
+  // Handle new task creation from the form
+  onTaskCreated(newTask: TideNode): void {
+    // Reload all tasks to include the new one
+    this.loadAllTideNodes();
+    
+    // Select the newly created task
+    this.selectedTideNode = newTask;
   }
 }

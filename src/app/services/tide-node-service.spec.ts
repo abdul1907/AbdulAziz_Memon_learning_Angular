@@ -1,5 +1,4 @@
-// Import statements: Bring in required testing modules and classes
-// import: ES6 module syntax for importing code from other files
+
 
 // TestBed: Angular testing utility for configuring and creating components/services for testing
 // '@angular/core/testing': Angular testing module containing testing utilities

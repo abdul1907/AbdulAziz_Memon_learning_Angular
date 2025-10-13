@@ -22,6 +22,9 @@
     <main class="main-content">
         <!-- Left section: Selected task details -->
         <div class="left-section">
+            <!-- Task creation form -->
+            <app-task-form (taskCreated)="onTaskCreated($event)"></app-task-form>
+            
             <div class="selected-task-section">
                 <h2>Selected Task:</h2>
                 <!-- TaskListItem component displays the currently selected task -->

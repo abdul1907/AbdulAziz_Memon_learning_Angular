@@ -1,0 +1,103 @@
+<div class="task-form-container">
+  <!-- Button to show/hide the form -->
+  <button class="add-task-button" (click)="toggleForm()">
+    {{ showForm ? '❌ Cancel' : '➕ Add New Task' }}
+  </button>
+
+  <!-- The actual form - only shows when showForm is true -->
+  @if (showForm) {
+    <form class="task-form" (ngSubmit)="onSubmit()">
+      <h2>Create New Task</h2>
+
+      <!-- Task description input -->
+      <div class="form-group">
+        <label for="description">Task Description *</label>
+        <input 
+          type="text" 
+          id="description"
+          [(ngModel)]="taskDescription"
+          name="description"
+          placeholder="What needs to be done?"
+          required>
+      </div>
+
+      <!-- Priority selector -->
+      <div class="form-group">
+        <label for="priority">Priority *</label>
+        <select 
+          id="priority"
+          [(ngModel)]="taskPriority"
+          name="priority"
+          required>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
+
+      <!-- Due date picker -->
+      <div class="form-group">
+        <label for="dueDate">Due Date *</label>
+        <input 
+          type="date" 
+          id="dueDate"
+          [(ngModel)]="taskDueDate"
+          name="dueDate"
+          required>
+      </div>
+
+      <!-- Effort input -->
+      <div class="form-group">
+        <label for="effort">Estimated Effort (hours) *</label>
+        <input 
+          type="number" 
+          id="effort"
+          [(ngModel)]="taskEffort"
+          name="effort"
+          min="1"
+          max="100"
+          required>
+      </div>
+
+      <!-- Category input -->
+      <div class="form-group">
+        <label for="category">Category *</label>
+        <input 
+          type="text" 
+          id="category"
+          [(ngModel)]="taskCategory"
+          name="category"
+          placeholder="e.g., academic, work, personal"
+          required>
+      </div>
+
+      <!-- Tags input -->
+      <div class="form-group">
+        <label for="tags">Tags (comma-separated)</label>
+        <input 
+          type="text" 
+          id="tags"
+          [(ngModel)]="taskTags"
+          name="tags"
+          placeholder="e.g., angular, urgent, homework">
+      </div>
+
+      <!-- Shift reason (optional) -->
+      <div class="form-group">
+        <label for="shiftReason">Shift Reason (optional)</label>
+        <textarea 
+          id="shiftReason"
+          [(ngModel)]="taskShiftReason"
+          name="shiftReason"
+          placeholder="Why is this task being added now?"
+          rows="3"></textarea>
+      </div>
+
+      <!-- Form buttons -->
+      <div class="form-actions">
+        <button type="submit" class="submit-button">Create Task</button>
+        <button type="button" class="cancel-button" (click)="toggleForm()">Cancel</button>
+      </div>
+    </form>
+  }
+</div>
