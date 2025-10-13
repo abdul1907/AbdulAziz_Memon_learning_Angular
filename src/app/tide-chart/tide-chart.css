@@ -1,0 +1,591 @@
+/* Tide Chart Component Styles */
+/* This CSS creates the visual "tide" effect with wave-like animations and ocean-themed colors */
+/* CSS (Cascading Style Sheets): Language for styling HTML elements */
+/* Comments: Use forward-slash-asterisk syntax for adding explanatory text in CSS */
+/* Selectors: Target specific HTML elements or classes for styling */
+/* Properties: Define visual characteristics like color, size, position */
+/* Values: Specific settings for each property */
+
+.tide-chart-container {
+  /* Main container for the entire tide chart */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.tide-chart-header {
+  /* Header section containing title and controls */
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.tide-chart-title {
+  /* Main title styling */
+  color: white;
+  font-size: 2.5rem;
+  margin: 0 0 10px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tide-chart-subtitle {
+  /* Subtitle styling */
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  margin: 0 0 20px 0;
+}
+
+.tide-controls {
+  /* Container for control buttons */
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.refresh-button, .toggle-button {
+  /* Styling for refresh and toggle buttons */
+  /* padding: Internal spacing for button content */
+  padding: 12px 24px;
+  /* border: none: Removes default button border */
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  /* border-radius: Creates rounded corners */
+  border-radius: 30px;
+  /* background: Semi-transparent white background */
+  background: rgba(255, 255, 255, 0.25);
+  /* color: Text color for button text */
+  color: white;
+  /* font-weight: Makes text bold */
+  font-weight: bold;
+  /* font-size: Size of button text */
+  font-size: 1rem;
+  /* cursor: pointer: Shows hand cursor on hover */
+  cursor: pointer;
+  /* transition: Smooth animation for all properties */
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* backdrop-filter: Creates glass blur effect */
+  backdrop-filter: blur(10px);
+  /* box-shadow: Adds depth with shadow */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  /* text-shadow: Adds shadow to text for better readability */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  /* letter-spacing: Adds space between letters */
+  letter-spacing: 0.5px;
+}
+
+.refresh-button:hover, .toggle-button:hover {
+  /* Hover effect for buttons */
+  /* background: Lighter background on hover */
+  background: rgba(255, 255, 255, 0.4);
+  /* transform: Moves button up and scales it larger */
+  transform: translateY(-3px) scale(1.05);
+  /* box-shadow: Larger shadow on hover for depth */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  /* border-color: Brighter border on hover */
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.refresh-button:active, .toggle-button:active {
+  /* Active state when button is clicked */
+  /* transform: Slightly smaller scale when pressed */
+  transform: translateY(-1px) scale(0.98);
+}
+
+.toggle-button.active {
+  /* Active state for toggle buttons when they're turned on */
+  /* background: Brighter background for active state */
+  background: rgba(255, 255, 255, 0.5);
+  /* border-color: Bright white border for active state */
+  border-color: rgba(255, 255, 255, 0.8);
+  /* box-shadow: Glowing effect for active buttons */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);
+  /* animation: Pulsing animation for active buttons */
+  animation: pulse 2s infinite;
+}
+
+/* Keyframes for pulsing animation on active buttons */
+/* @keyframes: Defines animation sequence */
+@keyframes pulse {
+  /* 0%: Starting state */
+  0% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  /* 50%: Middle state with larger glow */
+  50% {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.7), 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  /* 100%: Return to starting state */
+  100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Tide Section Styles */
+.tide-section {
+  /* Base styling for each tide section */
+  margin-bottom: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tide-section-header {
+  /* Header for each tide section */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  font-weight: bold;
+}
+
+.tide-section-title {
+  /* Title for each tide section */
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.tide-count {
+  /* Count display for tasks in each section */
+  background: rgba(0, 0, 0, 0.1);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* High Tide Section */
+.high-tide-section {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+}
+
+.high-tide-section .tide-section-header {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.high-tide-wave {
+  /* Wave-like container for high tide tasks */
+  background: linear-gradient(45deg, #ff7675, #fd79a8);
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  min-height: 120px;
+  align-items: center;
+}
+
+/* Medium Tide Section */
+.medium-tide-section {
+  background: linear-gradient(135deg, #fdcb6e, #e17055);
+}
+
+.medium-tide-section .tide-section-header {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.medium-tide-wave {
+  /* Wave-like container for medium tide tasks */
+  background: linear-gradient(45deg, #fdcb6e, #e17055);
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  min-height: 120px;
+  align-items: center;
+}
+
+/* Low Tide Section */
+.low-tide-section {
+  background: linear-gradient(135deg, #74b9ff, #0984e3);
+}
+
+.low-tide-section .tide-section-header {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.low-tide-wave {
+  /* Wave-like container for low tide tasks */
+  background: linear-gradient(45deg, #74b9ff, #0984e3);
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  min-height: 120px;
+  align-items: center;
+}
+
+/* Tide Task Styles */
+.tide-task {
+  /* Base styling for individual tide tasks */
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  min-width: 250px;
+  flex: 1;
+  max-width: 300px;
+}
+
+.tide-task:hover {
+  /* Hover effect for tide tasks */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 1);
+}
+
+.tide-task-content {
+  /* Content container for task details */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tide-task-header {
+  /* Header section of each task */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.tide-task-title {
+  /* Task title styling */
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #2d3436;
+  line-height: 1.3;
+}
+
+.tide-level-badge {
+  /* Badge showing tide level percentage */
+  background: #636e72;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.tide-task-details {
+  /* Container for task details */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tide-detail-item {
+  /* Individual detail item styling */
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.85rem;
+  color: #636e72;
+}
+
+.tide-icon {
+  /* Icon styling */
+  font-size: 0.9rem;
+}
+
+.tide-shift-reason {
+  /* Styling for tide shift reason */
+  background: rgba(116, 185, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #0984e3;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-left: 3px solid #74b9ff;
+}
+
+/* Tide Level Classes */
+.high-tide {
+  /* High tide task styling */
+  border-left: 4px solid #ff6b6b;
+}
+
+.medium-tide {
+  /* Medium tide task styling */
+  border-left: 4px solid #fdcb6e;
+}
+
+.low-tide {
+  /* Low tide task styling */
+  border-left: 4px solid #74b9ff;
+}
+
+/* Empty State */
+.empty-tide-state {
+  /* Styling for when no tasks are available */
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+.empty-tide-content h3 {
+  /* Empty state title */
+  color: white;
+  font-size: 1.5rem;
+  margin: 0 0 10px 0;
+}
+
+.empty-tide-content p {
+  /* Empty state description */
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Tide Statistics */
+.tide-statistics {
+  /* Footer statistics section */
+  display: flex;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.stat-item {
+  /* Individual statistic item */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.stat-label {
+  /* Statistic label */
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.stat-value {
+  /* Statistic value */
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Mobile responsive styles */
+  .tide-chart-container {
+    padding: 15px;
+  }
+  
+  .tide-chart-title {
+    font-size: 2rem;
+  }
+  
+  .tide-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tide-task {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  
+  .tide-statistics {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .stat-item {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+/* Animation for wave effect - Creates flowing motion like real ocean waves */
+/* @keyframes wave: Defines the wave animation sequence */
+@keyframes wave {
+  /* 0%: Starting position */
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  /* 25%: Move right and slightly up */
+  25% {
+    transform: translateX(15px) translateY(-5px);
+  }
+  /* 50%: Move right and down */
+  50% {
+    transform: translateX(20px) translateY(5px);
+  }
+  /* 75%: Move left and slightly up */
+  75% {
+    transform: translateX(15px) translateY(-5px);
+  }
+  /* 100%: Return to starting position */
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+.tide-wave {
+  /* Apply wave animation to tide wave containers */
+  /* animation: Applies the wave animation with 4 second duration, ease-in-out timing, infinite loop */
+  animation: wave 4s ease-in-out infinite;
+  /* position: relative: Allows animation to work properly */
+  position: relative;
+}
+
+/* Floating animation for tide tasks - Makes tasks bob up and down */
+/* @keyframes float: Defines the floating animation sequence */
+@keyframes float {
+  /* 0%: Starting position */
+  0% {
+    transform: translateY(0px);
+  }
+  /* 50%: Float up */
+  50% {
+    transform: translateY(-10px);
+  }
+  /* 100%: Return to starting position */
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.tide-task {
+  /* animation: Applies floating animation with varying durations for natural effect */
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Stagger the floating animation for each task to create wave effect */
+/* nth-child: Selects specific child elements */
+.tide-task:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.tide-task:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.tide-task:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.tide-task:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.tide-task:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.tide-task:nth-child(6) {
+  animation-delay: 1s;
+}
+
+/* Shimmer animation for tide chart header - Creates light reflection effect */
+/* @keyframes shimmer: Defines the shimmer animation sequence */
+@keyframes shimmer {
+  /* 0%: Starting position off-screen left */
+  0% {
+    background-position: -1000px 0;
+  }
+  /* 100%: Move across to off-screen right */
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.tide-chart-header {
+  /* position: relative: Allows pseudo-element positioning */
+  position: relative;
+  /* overflow: hidden: Hides shimmer effect outside bounds */
+  overflow: hidden;
+}
+
+.tide-chart-header::after {
+  /* content: Empty content for pseudo-element */
+  content: '';
+  /* position: absolute: Positions relative to parent */
+  position: absolute;
+  /* top, left, width, height: Covers entire header */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: Creates gradient shimmer effect */
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  /* background-size: Makes gradient wider than container */
+  background-size: 1000px 100%;
+  /* animation: Applies shimmer animation */
+  animation: shimmer 3s infinite;
+  /* pointer-events: none: Allows clicking through the shimmer */
+  pointer-events: none;
+}
+
+/* Ripple animation for tide level badge - Creates pulsing effect */
+/* @keyframes ripple: Defines the ripple animation sequence */
+@keyframes ripple {
+  /* 0%: Starting state */
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  /* 100%: Expanded and faded */
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.tide-level-badge {
+  /* position: relative: Allows pseudo-element positioning */
+  position: relative;
+  /* animation: Subtle pulse animation */
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Gradient animation for tide sections - Creates color shifting effect */
+/* @keyframes gradientShift: Defines the gradient animation sequence */
+@keyframes gradientShift {
+  /* 0%: Starting gradient position */
+  0% {
+    background-position: 0% 50%;
+  }
+  /* 50%: Middle gradient position */
+  50% {
+    background-position: 100% 50%;
+  }
+  /* 100%: Return to starting position */
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.high-tide-wave, .medium-tide-wave, .low-tide-wave {
+  /* background-size: Makes gradient larger for animation */
+  background-size: 200% 200%;
+  /* animation: Applies gradient shifting animation */
+  animation: wave 4s ease-in-out infinite, gradientShift 8s ease infinite;
+}

@@ -1,23 +1,63 @@
+<!-- Main App Component Template -->
+<!-- This template defines the structure and layout of the entire TaskTide application -->
+<!-- HTML Template: Defines the structure and layout of the AppComponent -->
+<!-- Angular Template Syntax: Uses Angular directives like property binding [task], event binding (taskSelected) -->
+
+<!-- Main container div: Wraps the entire application -->
+<!-- class="app-container": CSS class for styling the main application container -->
 <div class="app-container">
+    <!-- Header section: Contains the application title and subtitle -->
+    <!-- header: HTML5 semantic element for page header -->
+    <!-- class="app-header": CSS class for styling the header section -->
     <header class="app-header">
+        <!-- h1: HTML5 heading element for the main title -->
+        <!-- 🌊: Unicode emoji for wave symbol representing the tide metaphor -->
         <h1>🌊 TaskTide</h1>
+        <!-- p: HTML5 paragraph element for subtitle -->
+        <!-- class="subtitle": CSS class for styling the subtitle -->
         <p class="subtitle">Adaptive Workflow Organizer</p>
     </header>
     
+    <!-- Main content area with two sections -->
     <main class="main-content">
-        <div class="top-task">
-          <h2>Selected Task:</h2>
-          <app-task-list-item [task]="selectedTideNode"></app-task-list-item>
+        <!-- Left section: Selected task details -->
+        <div class="left-section">
+            <div class="selected-task-section">
+                <h2>Selected Task:</h2>
+                <!-- TaskListItem component displays the currently selected task -->
+                <!-- [task]="selectedTideNode" - property binding passes the selected task to the component -->
+                <app-task-list-item [task]="selectedTideNode"></app-task-list-item>
+            </div>
+            
+            <!-- Task list section -->
+            <div class="task-list-section">
+                <h3 style="text-align: center; color: #2c3e50; margin-bottom: 20px; font-size: 1.3rem;">
+                    📋 All Tasks - Click any task to select it
+                </h3>
+                <!-- TaskList component displays all tasks -->
+                <!-- (taskSelected)="onTaskSelected($event)" - event binding listens for task selection events -->
+                <app-task-list (taskSelected)="onTaskSelected($event)"></app-task-list>
+            </div>
         </div>
-        
-        <div class="task-list-section">
-          <h3 style="text-align: center; color: #2c3e50; margin-bottom: 20px; font-size: 1.3rem;">
-            📋 All Tasks - Click any task to select it
-          </h3>
-          <app-task-list (taskSelected)="onTaskSelected($event)"></app-task-list>
+
+        <!-- Right section: Tide chart visualization -->
+        <div class="right-section">
+            <div class="tide-chart-section">
+                <h3 style="text-align: center; color: #2c3e50; margin-bottom: 20px; font-size: 1.3rem;">
+                    🌊 Tide Chart - Visual Task Flow
+                </h3>
+                <!-- TideChartComponent displays tasks in wave-like format -->
+                <!-- [tideNodes]="allTideNodes" - property binding passes all tasks to the tide chart -->
+                <!-- (taskClicked)="onTideChartTaskClicked($event)" - event binding listens for task clicks in tide chart -->
+                <app-tide-chart 
+                    [tideNodes]="allTideNodes" 
+                    (taskClicked)="onTideChartTaskClicked($event)">
+                </app-tide-chart>
+            </div>
         </div>
     </main>
     
+    <!-- Footer section with required textarea -->
     <footer class="app-footer">
         <textarea class="required-textarea" readonly>This is a Required to be here</textarea>
     </footer>

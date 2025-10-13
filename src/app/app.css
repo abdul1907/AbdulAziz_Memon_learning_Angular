@@ -1,6 +1,12 @@
 /* TaskTide - Adaptive Workflow Organizer Styles */
+/* This CSS file contains all the styling for the main AppComponent */
+/* CSS (Cascading Style Sheets): Language for styling HTML elements */
+/* Comments: Use forward-slash-asterisk syntax for adding explanatory text in CSS */
+/* Selectors: Target specific HTML elements or classes for styling */
+/* Properties: Define visual characteristics like color, size, position */
+/* Values: Specific settings for each property */
 
-/* Global Styles */
+/* Global Styles: Apply to all elements unless overridden */
 * {
     margin: 0;
     padding: 0;
@@ -48,18 +54,28 @@ body {
     font-weight: 300;
 }
 
-/* Main Content */
+/* Main Content - Two Column Layout */
 .main-content {
     flex: 1;
     margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
 }
 
-/* Top Task Section - Featured Task */
-.top-task {
+/* Left Section - Task List and Selected Task */
+.left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Selected Task Section - Featured Task */
+.selected-task-section {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     padding: 25px;
-    margin-bottom: 30px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     border: 2px solid #007bff;
@@ -67,7 +83,7 @@ body {
     overflow: hidden;
 }
 
-.top-task::before {
+.selected-task-section::before {
     content: '⭐ SELECTED TASK';
     position: absolute;
     top: 0;
@@ -82,7 +98,7 @@ body {
     letter-spacing: 1px;
 }
 
-.top-task h2 {
+.selected-task-section h2 {
     color: #2c3e50;
     font-size: 1.5rem;
     margin: 30px 0 20px 0;
@@ -90,12 +106,35 @@ body {
     text-align: center;
 }
 
-.top-task app-task-list-item {
+.selected-task-section app-task-list-item {
     display: block;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     border-radius: 10px;
     padding: 20px;
     border: 1px solid #dee2e6;
+}
+
+/* Task List Section */
+.task-list-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* Right Section - Tide Chart */
+.right-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.tide-chart-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 /* Footer */
@@ -322,37 +361,34 @@ body {
     font-size: 1.1rem;
   }
   
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .tasktide-container {
-      padding: 15px;
-    }
-    
-    .app-header h1 {
-      font-size: 2rem;
-    }
-    
-    .tasks-section {
-      grid-template-columns: 1fr;
-      gap: 15px;
-    }
-    
-    .task-card {
-      padding: 20px;
-    }
-    
-    .task-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    
-    .detail-item {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 5px;
-    }
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 15px;
   }
+  
+  .app-header h1 {
+    font-size: 2rem;
+  }
+  
+  /* Stack columns vertically on mobile */
+  .main-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .left-section, .right-section {
+    gap: 15px;
+  }
+  
+  .selected-task-section, .task-list-section, .tide-chart-section {
+    padding: 20px;
+  }
+  
+  .selected-task-section h2 {
+    font-size: 1.3rem;
+  }
+}
   
   @media (max-width: 480px) {
     .app-header {
