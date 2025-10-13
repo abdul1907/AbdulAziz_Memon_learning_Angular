@@ -14,7 +14,7 @@ export class TaskList implements OnInit {
   title = 'abdul-aziz-memon-learning-angular';
   tideNodes: TideNode[] = [];
 
-  @Output() taskSelected = new EventEmitter<TideNode>();
+  @Output() taskSelected = new EventEmitter<TideNode>(); //Event Emitter is used to emit custom events from child to parent component, here it emits a TideNode object when a task is selected, @output makes the property available for event binding by parent components
 
   constructor(private tideNodeService: TideNodeService) { }
   
