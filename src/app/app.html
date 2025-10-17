@@ -5,7 +5,19 @@
 
 <!-- Main container div: Wraps the entire application -->
 <!-- class="app-container": CSS class for styling the main application container -->
+<!-- Nav Bar-->
+ <div class="nav-bar">
+    <nav>
+        <a routerLink="/" routerLinkActive="active">Home</a>
+        <a routerLink="/modify-list-item/1" routerLinkActive="active">Modify Task</a>
+    </nav>
+ </div>
+
 <div class="app-container">
+
+    <h1>{{title}}</h1>
+    <!-- Router outlet display routed compnents-->
+    <router-outlet></router-outlet>
     <!-- Header section: Contains the application title and subtitle -->
     <!-- header: HTML5 semantic element for page header -->
     <!-- class="app-header": CSS class for styling the header section -->

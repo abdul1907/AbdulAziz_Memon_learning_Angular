@@ -23,6 +23,19 @@ const routes: Routes = [
   {
     path: 'task-form',
     loadComponent: () => import('./app/task-form/task-form').then(m => m.TaskForm)
+  },
+
+  //Modify List Item Route
+  {
+    path: 'modify-list-item/:id',
+    loadComponent: () => import('./app/modify-list-item/modify-list-item').then(m => m.ModifyListItem)
+  },
+  //Page Not Found Route
+  //This route is used to display a page not found message when a user navigates to a non-existent route
+  //** is a wildcard route that matches any route
+  {
+    path: '**',
+    loadComponent: () => import('./app/page-not-found/page-not-found').then(m => m.PageNotFound)
   }
 
 ];

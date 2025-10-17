@@ -411,3 +411,44 @@ body {
       font-size: 1.1rem;
     }
   }
+
+
+  /*NAVIGATION BAR STYLES  */
+
+/* Navigation bar container */
+.nav-bar {
+  background-color: #f8f9fa;        /* Light gray background */
+  padding: 10px 0;                  /* Top and bottom padding */
+  border-bottom: 1px solid #dee2e6;  /* Bottom border */
+  margin-bottom: 20px;               /* Space below navbar */
+}
+
+/* Navigation links container */
+.nav-bar nav {
+  display: flex;                     /* Horizontal layout */
+  gap: 20px;                        /* Space between links */
+  padding: 0 20px;                  /* Left and right padding */
+}
+
+/* Navigation links */
+.nav-bar a {
+  text-decoration: none;            /* Remove underline */
+  color: #007bff;                   /* Blue color */
+  padding: 8px 16px;                /* Padding around text */
+  border-radius: 4px;               /* Rounded corners */
+  transition: all 0.3s ease;       /* Smooth hover effect */
+  font-weight: 500;                 /* Medium font weight */
+}
+
+/* Navigation link hover effect */
+.nav-bar a:hover {
+  background-color: #e9ecef;        /* Light gray background */
+  color: #0056b3;                   /* Darker blue */
+}
+
+/* Active navigation link (routerLinkActive="active") */
+.nav-bar a.active {
+  background-color: #007bff;         /* Blue background */
+  color: white;                     /* White text */
+  font-weight: bold;                /* Bold text */
+}

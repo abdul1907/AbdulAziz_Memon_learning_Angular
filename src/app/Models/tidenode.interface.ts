@@ -7,6 +7,7 @@ export interface TideNode {
     
     taskDescription: string;
     
+    taskImage?: string; 
     
     taskPriority: 'low' | 'medium' | 'high';
     

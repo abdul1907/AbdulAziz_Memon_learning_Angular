@@ -3,9 +3,15 @@
 
 <div class="task-list-item">
     <div class="task-image-container">
-        <img [src]="'images/task-' + ((task.taskId % 2) + 1) + '.png'"
+        <!-- Using NgOptimizedImage directive to optimize image loading-->
+         <!-- ngSrc: directive overrides the original src attribute of an <img> element-->
+
+        <img [ngSrc]="'images/task-' + ((task.taskId % 2) + 1) + '.png'"
              [alt]="task.taskDescription"
-             class="task-image">
+             width="300"
+             height="200"
+             class="task-image"
+             priority="true">
     </div>
     <div class="task-content">
         <div class="task-header">
