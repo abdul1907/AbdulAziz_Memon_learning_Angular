@@ -19,11 +19,6 @@ const routes: Routes = [
     path: 'task-detail/:id',
     loadComponent: () => import('./app/task-list-item/task-list-item').then(m => m.TaskListItem)
   },
-  //Task Form Route
-  {
-    path: 'task-form',
-    loadComponent: () => import('./app/task-form/task-form').then(m => m.TaskForm)
-  },
 
   //Modify List Item Route
   {

@@ -27,17 +27,15 @@ import { TideNodeService } from './services/tide-node-service';
 // './task-list-item/task-list-item': Relative path to the TaskListItem component
 import { TaskListItem } from './task-list-item/task-list-item';
 
+
 // TideChartComponent: Component class for displaying tasks in a visual tide chart
 // './tide-chart/tide-chart': Relative path to the TideChartComponent
-import { TideChartComponent } from './tide-chart/tide-chart';
-import { TaskForm } from './task-form/task-form';
-
 // Component decorator marks this as the root component
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
-  imports: [CommonModule, TaskList, TaskListItem, TideChartComponent, TaskForm]
+  imports: [CommonModule, TaskList, TaskListItem]
 })
 // AppComponent: Root component class that manages the entire application
 // export: Makes this class available for import in other files
