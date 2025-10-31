@@ -18,7 +18,7 @@
         <select id="taskPriority" formControlName="taskPriority">
             <option value="low">Low</option>
             <option value="medium">Medium</option>
-            <option value="hgh">High</option>
+            <option value="high">High</option>
         </select>
     </div>
 
@@ -36,8 +36,8 @@
 
     <!-- Category Field -->
     <div class="form-group">
-        <label for="Category">Category :</label>
-        <input type="number" id="Category" formControlName="Category" placeholder="Enter Category of the task"/>
+        <label for="category">Category :</label>
+        <input type="text" id="Category" formControlName="category" placeholder="Enter Category of the task"/>
     </div>
 
     <!-- Status Field -->
@@ -72,5 +72,6 @@
 
      <!-- Buttons -->
       <button type="submit">Submit</button>
+      <button type="button" (click)="onReset()">Reset</button>
     
 </form>

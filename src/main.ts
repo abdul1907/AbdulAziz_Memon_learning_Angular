@@ -2,35 +2,42 @@ import { bootstrapApplication } from '@angular/platform-browser';  //bootstrapAp
 import { provideRouter } from  '@angular/router';  //provideRouter is a function that provides the router configuration
 import { Routes } from '@angular/router';  //Routes is a type that defines the routes of the application
 import { AppComponent } from './app/app';
+import { TaskList } from './app/task-list/task-list';
+import { TaskListItem } from './app/task-list-item/task-list-item';
+import { ModifyListItem } from './app/modify-list-item/modify-list-item';
+import { PageNotFound } from './app/page-not-found/page-not-found';
 
 const routes: Routes = [
-  //Home Route
+  //Home route - loads TaskList in AppComponent's router-outlet
   {
     path: '',
-    loadComponent: () => import('./app/app').then(m => m.AppComponent)
+    redirectTo: '/task-list',
+    pathMatch: 'full'
   },
   //Task List Route
   {
     path: 'task-list',
-    loadComponent: () => import('./app/task-list/task-list').then(m => m.TaskList)
+    component: TaskList
   },
-  //Task Detail Route
+  //Task Detail Route with dynamic parameter
   {
     path: 'task-detail/:id',
-    loadComponent: () => import('./app/task-list-item/task-list-item').then(m => m.TaskListItem)
+    component: TaskListItem
   },
-
-  //Modify List Item Route
+  //Create Route without id (opens empty form to add new task)
+  {
+    path: 'modify-list-item',
+    component: ModifyListItem
+  },
+  //Modify List Item Route with dynamic parameter
   {
     path: 'modify-list-item/:id',
-    loadComponent: () => import('./app/modify-list-item/modify-list-item').then(m => m.ModifyListItem)
+    component: ModifyListItem
   },
-  //Page Not Found Route
-  //This route is used to display a page not found message when a user navigates to a non-existent route
-  //** is a wildcard route that matches any route
+  //Wildcard route for 404 page - must be last
   {
     path: '**',
-    loadComponent: () => import('./app/page-not-found/page-not-found').then(m => m.PageNotFound)
+    component: PageNotFound
   }
 
 ];

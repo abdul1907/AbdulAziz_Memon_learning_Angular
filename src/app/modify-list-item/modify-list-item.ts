@@ -63,8 +63,31 @@ export class ModifyListItem  implements OnInit {
       task.taskId = newTaskId;
       this.tideNodeService.addTideNode(task);
     }
+    // Reset form after submission
+    this.taskForm.reset();
+    // Reset form to default values
+    this.taskForm.patchValue({
+      taskPriority: 'medium',
+      taskEffort: '1',
+      status: 'active',
+      isHighTide: false,
+      isLowTide: false
+    });
+    // Navigate to task list
     this.router.navigate(['/task-list']);
   }
 
+  // Reset button method - manually reset the form
+  onReset(): void {
+    this.taskForm.reset();
+    // Reset to default values after resetting
+    this.taskForm.patchValue({
+      taskPriority: 'medium',
+      taskEffort: '1',
+      status: 'active',
+      isHighTide: false,
+      isLowTide: false
+    });
+  }
 
 }

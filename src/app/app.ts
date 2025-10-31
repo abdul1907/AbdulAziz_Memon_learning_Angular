@@ -26,6 +26,7 @@ import { TideNodeService } from './services/tide-node-service';
 // TaskListItem: Component class for displaying individual task items
 // './task-list-item/task-list-item': Relative path to the TaskListItem component
 import { TaskListItem } from './task-list-item/task-list-item';
+import { RouterOutlet } from "@angular/router";
 
 
 // TideChartComponent: Component class for displaying tasks in a visual tide chart
@@ -35,7 +36,7 @@ import { TaskListItem } from './task-list-item/task-list-item';
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
-  imports: [CommonModule, TaskList, TaskListItem]
+  imports: [CommonModule, TaskList, TaskListItem, RouterOutlet]
 })
 // AppComponent: Root component class that manages the entire application
 // export: Makes this class available for import in other files

@@ -14,10 +14,6 @@
  </div>
 
 <div class="app-container">
-
-    <h1>{{title}}</h1>
-    <!-- Router outlet display routed compnents-->
-    <router-outlet></router-outlet>
     <!-- Header section: Contains the application title and subtitle -->
     <!-- header: HTML5 semantic element for page header -->
     <!-- class="app-header": CSS class for styling the header section -->
@@ -33,10 +29,7 @@
     <!-- Main content area with two sections -->
     <main class="main-content">
         <!-- Left section: Selected task details -->
-        <div class="left-section">
-            <!-- Task creation form -->
-            <app-task-form (taskCreated)="onTaskCreated($event)"></app-task-form>
-            
+        <div class="left-section">            
             <div class="selected-task-section">
                 <h2>Selected Task:</h2>
                 <!-- TaskListItem component displays the currently selected task -->
@@ -49,31 +42,11 @@
                 <h3 style="text-align: center; color: #2c3e50; margin-bottom: 20px; font-size: 1.3rem;">
                     📋 All Tasks - Click any task to select it
                 </h3>
-                <!-- TaskList component displays all tasks -->
-                <!-- (taskSelected)="onTaskSelected($event)" - event binding listens for task selection events -->
-                <app-task-list (taskSelected)="onTaskSelected($event)"></app-task-list>
-            </div>
-        </div>
-
-        <!-- Right section: Tide chart visualization -->
-        <div class="right-section">
-            <div class="tide-chart-section">
-                <h3 style="text-align: center; color: #2c3e50; margin-bottom: 20px; font-size: 1.3rem;">
-                    🌊 Tide Chart - Visual Task Flow
-                </h3>
-                <!-- TideChartComponent displays tasks in wave-like format -->
-                <!-- [tideNodes]="allTideNodes" - property binding passes all tasks to the tide chart -->
-                <!-- (taskClicked)="onTideChartTaskClicked($event)" - event binding listens for task clicks in tide chart -->
-                <app-tide-chart 
-                    [tideNodes]="allTideNodes" 
-                    (taskClicked)="onTideChartTaskClicked($event)">
-                </app-tide-chart>
+                <!-- TaskList component loaded through router-outlet -->
+                <!-- Router outlet will load TaskList component for home route -->
+                <router-outlet></router-outlet>
             </div>
         </div>
     </main>
     
-    <!-- Footer section with required textarea -->
-    <footer class="app-footer">
-        <textarea class="required-textarea" readonly>This is a Required to be here</textarea>
-    </footer>
 </div>
