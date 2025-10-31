@@ -4,5 +4,9 @@
   [class.odd-item]="(i % 2) === 1"
   (click)="onTaskClick(tideNode)">
   <app-task-list-item [task]="tideNode"></app-task-list-item>
+
+  <!--Edit and Delete Buttons-->
+  <button type="button" (click)="onEdit(tideNode)">Edit</button>
+  <button type="button" (click)="onDelete(tideNode)">Delete</button>
   </div>
 }

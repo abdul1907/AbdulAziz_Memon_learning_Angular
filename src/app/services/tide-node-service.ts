@@ -75,6 +75,9 @@ export class TideNodeService {
     return of(undefined);
   }
 
+  generateNewTaskId(): number {
+    return this.tideNodes.length > 0 ? Math.max(...this.tideNodes.map(node => node.taskId)) + 1 : 1;
+  }
   // NEW METHODS FOR TIDE CALCULATION AND MANAGEMENT:
 
   // Method to calculate tide level for a given tide node

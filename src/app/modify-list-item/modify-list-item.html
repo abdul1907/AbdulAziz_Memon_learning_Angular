@@ -1,1 +1,76 @@
-<p>modify-list-item works!</p>
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+
+    <!-- ID Field -->
+    <div class="form-group">
+        <label for="taskId">Task ID:</label>
+        <input type="number" id="taskId" formControlName="taskId" />
+    </div>
+
+    <!-- Description Field -->
+    <div class="form-group">
+        <label for="taskDescription">Task Description:</label>
+        <input type="text" id="taskDescription" formControlName="taskDescription" placeholder="Enter task description"/>
+    </div>
+
+    <!-- Priority Field -->
+    <div class="form-group">
+        <label for="taskPriority">Task Priority:</label>
+        <select id="taskPriority" formControlName="taskPriority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="hgh">High</option>
+        </select>
+    </div>
+
+    <!-- Due Date Field -->
+    <div class="form-group">
+        <label for="taskDueDate">Task Due Date:</label>
+        <input type="date" id="taskDueDate" formControlName="taskDueDate" placeholder="Enter Date in YYYY-MM-DD format"/>
+    </div>
+
+    <!-- Effort Field -->
+    <div class="form-group">
+        <label for="taskEffort">Task Effort:</label>
+        <input type="number" id="taskEffort" formControlName="taskEffort" placeholder="Enter task effort between 1 and 10"/>
+    </div>
+
+    <!-- Category Field -->
+    <div class="form-group">
+        <label for="Category">Category :</label>
+        <input type="number" id="Category" formControlName="Category" placeholder="Enter Category of the task"/>
+    </div>
+
+    <!-- Status Field -->
+    <div class="form-group">
+        <label for="status">Status:</label>
+        <select id="status" formControlName="status">
+            <option value="active">Active</option>
+            <option value="completed">Completed</option>
+            <option value="deferred">Deferred</option>
+            <option value="cancelled">Cancelled</option>
+        </select>
+    </div>
+
+
+    <!-- Shift Reason Field -->
+    <div class="form-group">
+        <label for="taskShiftReason">Task Shift Reason (Optional):</label>
+        <textarea id="taskShiftReason" formControlName="taskShiftReason" placeholder="Enter the reason why the task you want to  shift"></textarea>
+    </div>
+
+    <!-- Tags Field --> 
+    <div class="form-group">
+        <label for="tags">Tags (Optional):</label>
+        <input type="text" id="tags" formControlName="tags" placeholder="Enter tags for the task with (,) separated"/>
+    </div>
+
+    <!-- Task Image Field -->
+     <div class="form-group">
+        <label for="taskImage">Task Image (Optional):</label>
+        <input type="file" id="taskImage" formControlName="taskImage" placeholder="Upload an image for the task"/>
+     </div>
+
+     <!-- Buttons -->
+      <button type="submit">Submit</button>
+    
+</form>
