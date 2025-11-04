@@ -26,7 +26,7 @@ import { TideNodeService } from './services/tide-node-service';
 // TaskListItem: Component class for displaying individual task items
 // './task-list-item/task-list-item': Relative path to the TaskListItem component
 import { TaskListItem } from './task-list-item/task-list-item';
-import { RouterOutlet } from "@angular/router";
+import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 
 
 // TideChartComponent: Component class for displaying tasks in a visual tide chart
@@ -36,7 +36,7 @@ import { RouterOutlet } from "@angular/router";
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
-  imports: [CommonModule, TaskList, TaskListItem, RouterOutlet]
+  imports: [CommonModule, TaskList, TaskListItem, RouterOutlet, RouterLink, RouterLinkActive]
 })
 // AppComponent: Root component class that manages the entire application
 // export: Makes this class available for import in other files
@@ -63,7 +63,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     // Load all tide nodes when the component initializes
     this.loadAllTideNodes();
-    
+
     // Load the first tide node as the default selected task
     this.tideNodeService.getTideNodeById(1).subscribe(
       (tideNode: TideNode | undefined) => {
@@ -114,7 +114,7 @@ export class AppComponent implements OnInit {
   onTaskCreated(newTask: TideNode): void {
     // Reload all tasks to include the new one
     this.loadAllTideNodes();
-    
+
     // Select the newly created task
     this.selectedTideNode = newTask;
   }
