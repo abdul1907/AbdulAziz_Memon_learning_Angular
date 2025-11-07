@@ -56,7 +56,7 @@ export class TideNodeService {
   generateNewTaskId(): number {
     return this.tideNodes.length > 0 ? Math.max(...this.tideNodes.map(node => node.taskId)) + 1 : 1;
   }
-
+  
 }
   // NEW METHODS FOR TIDE CALCULATION AND MANAGEMENT:
 

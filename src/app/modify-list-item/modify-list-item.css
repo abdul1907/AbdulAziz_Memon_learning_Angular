@@ -1,0 +1,11 @@
+/* Error Message Styling */
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 12px 16px;
+    margin: 10px 0;
+    border-left: 4px solid #c62828;
+    border-radius: 4px;
+    font-weight: 500;
+    display: block;
+}

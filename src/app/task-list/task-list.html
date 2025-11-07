@@ -1,3 +1,5 @@
+<div *ngIf="errorMessage" class="error-message">{{errorMessage}}</div>
+
 <!-- Add Task Button -->
 <div style="margin: 10px 0; text-align: right;">
   <button type="button" (click)="onAdd()">Add Task</button>

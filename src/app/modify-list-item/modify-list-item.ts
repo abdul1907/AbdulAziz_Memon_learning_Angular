@@ -3,16 +3,18 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular
 import { TideNode } from '../Models/tidenode.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TideNodeService } from '../services/tide-node-service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-modify-list-item',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './modify-list-item.html',
   styleUrl: './modify-list-item.css'
 })
 export class ModifyListItem  implements OnInit {
   taskForm: FormGroup;
   task: TideNode | undefined;
+  errorMessage: string | null = null;
   //Form Setup
   constructor(
     private fb: FormBuilder, //FormBuilder is a service that helps to create reactive forms
@@ -21,7 +23,7 @@ export class ModifyListItem  implements OnInit {
     private tideNodeService: TideNodeService //TideNodeService is a service helps to manage CRUD operations for tide nodes
   ) {
     this.taskForm = this.fb.group({
-      taskId:['', Validators.required],
+      taskId:[''],
       taskDescription: ['', Validators.required],
       taskPriority: ['medium', Validators.required],
       taskDueDate: ['', Validators.required],
@@ -42,40 +44,52 @@ export class ModifyListItem  implements OnInit {
 // paramMap is a method that returns the parameters of the current route
 //patchValue is a method that updates the form with the values of the task it is flexible and partial updates are allowed
   ngOnInit(): void {
+    this.errorMessage = null;
   const taskId = this.route.snapshot.paramMap.get('id');
   if (taskId) {
-    this.tideNodeService.getTideNodeById(+taskId).subscribe(task => {
+    this.tideNodeService.getTideNodeById(+taskId).subscribe({
+      next: (task) => {
       if (task) {
-        this.task = task;
         this.taskForm.patchValue(task);
+      }else {
+        this.errorMessage = 'Task not found';
       }
-    });
+    },
+    error: (error) => {
+      this.errorMessage = 'Failed to fetch task';
+      console.error('Error fetching task:', error);
+    }
+  });
   }
 }
 
-  onSubmit(): void {
-    const task : TideNode = this.taskForm.value;
+ onSubmit(): void {
+  if (this.taskForm.valid) {
+    this.errorMessage = null;
+    const task: TideNode = this.taskForm.value;
     if (task.taskId) {
-      this.tideNodeService.updateTideNode(task);
+      this.tideNodeService.updateTideNode(task).subscribe({
+        next: () => {
+          this.router.navigate(['/task-list']);
+        },
+        error: (error) => {
+          this.errorMessage = 'Failed to update task';
+          console.error('Error updating task:', error);
+        }
+      });
+    } else {
+      this.tideNodeService.addTideNode(task).subscribe({
+        next: () => {
+          this.router.navigate(['/task-list']);
+        },
+        error: (error) => {
+          this.errorMessage = 'Failed to add task';
+          console.error('Error adding task:', error);
+        }
+      });
     }
-    else {
-      const newTaskId = this.tideNodeService.generateNewTaskId();
-      task.taskId = newTaskId;
-      this.tideNodeService.addTideNode(task);
-    }
-    // Reset form after submission
-    this.taskForm.reset();
-    // Reset form to default values
-    this.taskForm.patchValue({
-      taskPriority: 'medium',
-      taskEffort: '1',
-      status: 'active',
-      isHighTide: false,
-      isLowTide: false
-    });
-    // Navigate to task list
-    this.router.navigate(['/task-list']);
   }
+}
 
   // Reset button method - manually reset the form
   onReset(): void {
@@ -90,4 +104,20 @@ export class ModifyListItem  implements OnInit {
     });
   }
 
+  onDelete(): void {
+    this.errorMessage = null;
+    const taskId = this.taskForm.value.taskId;
+    if (taskId) {
+      this.tideNodeService.deleteTideNode(taskId).subscribe({
+        next: () => {
+          this.router.navigate(['/task-list']);
+        },
+        error: (error) => {
+          this.errorMessage = 'Failed to delete task';
+          console.error('Error deleting task:', error);
+        }
+      });
+    }
+  }
 }
+

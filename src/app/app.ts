@@ -36,7 +36,7 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
-  imports: [CommonModule, TaskList, TaskListItem, RouterOutlet, RouterLink, RouterLinkActive]
+  imports: [CommonModule, TaskListItem, RouterOutlet, RouterLink, RouterLinkActive]
 })
 // AppComponent: Root component class that manages the entire application
 // export: Makes this class available for import in other files

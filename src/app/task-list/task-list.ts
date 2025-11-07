@@ -16,26 +16,44 @@ export class TaskList implements OnInit {
   tideNodes: TideNode[] = [];
 
   @Output() taskSelected = new EventEmitter<TideNode>(); //Event Emitter is used to emit custom events from child to parent component, here it emits a TideNode object when a task is selected, @output makes the property available for event binding by parent components
-  
+  errorMessage :string | null = null;
    
 
   constructor(private tideNodeService: TideNodeService,
       private router: Router) { }
   
   ngOnInit(): void {
-    this.tideNodeService.getAllTideNodes().subscribe((tideNodes: TideNode[]) => {
-      this.tideNodes = tideNodes;
-      }
-    );
-  }
-
-  onDelete(tideNode: TideNode): void {
-    this.tideNodeService.deleteTideNode(tideNode.taskId).subscribe(() => {
-      this.tideNodeService.getAllTideNodes().subscribe((tideNodes: TideNode[]) => {
+    this.tideNodeService.getAllTideNodes().subscribe({
+      next: (tideNodes: TideNode[]) => {
         this.tideNodes = tideNodes;
-      });
+        this.errorMessage = null;
+      },
+      error: (error) => {
+        this.errorMessage = 'Failed to fetch tide nodes';
+        console.error('Error loading tide nodes:', error);
+      }
     });
   }
+    
+  onDelete(tideNode: TideNode): void {
+    this.errorMessage = null;
+    this.tideNodeService.deleteTideNode(tideNode.taskId).subscribe(() => {
+      this.tideNodeService.getAllTideNodes().subscribe(
+        (tideNodes: TideNode[]) => {
+          this.tideNodes = tideNodes;
+        },
+        (error) => {
+          this.errorMessage = 'Failed to Refresh the list after task delete'
+          console.error('Error refreshing list after task delete:', error);
+        }
+      );
+    },
+    (error) => {
+      this.errorMessage = 'Failed to delete task'
+      console.error('Error deleting task:', error);
+    }
+  );
+}
 
   onEdit(tideNode: TideNode): void {
     this.router.navigate(['/modify-list-item', tideNode.taskId]);

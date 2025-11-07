@@ -6,6 +6,10 @@ import { TaskList } from './app/task-list/task-list';
 import { TaskListItem } from './app/task-list-item/task-list-item';
 import { ModifyListItem } from './app/modify-list-item/modify-list-item';
 import { PageNotFound } from './app/page-not-found/page-not-found';
+import { InMemoryDataService } from './app/services/in-memory-data-service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { importProvidersFrom } from '@angular/core';  
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 const routes: Routes = [
   //Home route - loads TaskList in AppComponent's router-outlet
@@ -44,7 +48,11 @@ const routes: Routes = [
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter(routes)
+    provideHttpClient(withInterceptorsFromDi()),
+    provideRouter(routes),
+    importProvidersFrom(
+      (HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1000 }))
+    )
   ]
 })
   .catch((err) => console.error(err));
