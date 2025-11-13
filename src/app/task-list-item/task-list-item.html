@@ -21,15 +21,15 @@
         <div class="task-details">
             <div class="detail-row">
                 <span class="priority-badge priority-{{ task.taskPriority }}">
-                    {{ task.taskPriority.toUpperCase() }}
+                    {{ task.taskPriority | uppercase }}
                 </span>
                 <span class="detail-item">
                     <i class="icon">📅</i>
-                    {{ task.taskDueDate }}
+                    {{ task.taskDueDate | date:'fullDate' }}
                 </span>
                 <span class="detail-item">
                     <i class="icon">⏱️</i>
-                    {{ task.taskEffort }}h
+                    {{ task.taskEffort | number:'2.2' }}h
                 </span>
             </div>
             <div class="shift-section" *ngIf="task.taskShiftReason">
