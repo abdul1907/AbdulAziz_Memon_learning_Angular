@@ -2,7 +2,7 @@
 
 export interface TideNode {
     
-    taskId: number;
+    id: number;
     taskDescription: string;  
     taskPriority: 'low' | 'medium' | 'high'; 
     taskDueDate: string;

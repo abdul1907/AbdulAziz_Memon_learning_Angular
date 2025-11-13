@@ -22,7 +22,6 @@ export class TideNodeService {
   // Method to get all tide nodes as an Observable
   // Observable allows components to subscribe to data changes reactively
   getAllTideNodes(): Observable<TideNode[]> {
-    // Return a copy of the tide nodes array to prevent external modifications
     return this.http.get<TideNode[]>(this.apiUrl);
   }
 
@@ -35,14 +34,13 @@ export class TideNodeService {
   // Method to add a new tide node to the collection
   // Takes a TideNode object and returns all tide nodes after addition
   addTideNode(tideNode: TideNode): Observable<TideNode> {
-    // Return a copy of the updated array
     return this.http.post<TideNode>(this.apiUrl, tideNode);
   }
 
   // Method to update an existing tide node
   // Takes an updated TideNode and replaces the existing one with matching ID
   updateTideNode(updatedTideNode: TideNode): Observable<TideNode> {
-    const url = `${this.apiUrl}/${updatedTideNode.taskId}`;
+    const url = `${this.apiUrl}/${updatedTideNode.id}`;
     return this.http.put<TideNode>(url, updatedTideNode);
   }
 
@@ -54,7 +52,7 @@ export class TideNodeService {
   }
 
   generateNewTaskId(): number {
-    return this.tideNodes.length > 0 ? Math.max(...this.tideNodes.map(node => node.taskId)) + 1 : 1;
+    return this.tideNodes.length > 0 ? Math.max(...this.tideNodes.map(node => node.id)) + 1 : 1;
   }
   
 }

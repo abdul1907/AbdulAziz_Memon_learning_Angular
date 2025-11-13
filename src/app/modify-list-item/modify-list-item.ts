@@ -23,7 +23,7 @@ export class ModifyListItem  implements OnInit {
     private tideNodeService: TideNodeService //TideNodeService is a service helps to manage CRUD operations for tide nodes
   ) {
     this.taskForm = this.fb.group({
-      taskId:[''],
+      id:[''],
       taskDescription: ['', Validators.required],
       taskPriority: ['medium', Validators.required],
       taskDueDate: ['', Validators.required],
@@ -45,9 +45,9 @@ export class ModifyListItem  implements OnInit {
 //patchValue is a method that updates the form with the values of the task it is flexible and partial updates are allowed
   ngOnInit(): void {
     this.errorMessage = null;
-  const taskId = this.route.snapshot.paramMap.get('id');
-  if (taskId) {
-    this.tideNodeService.getTideNodeById(+taskId).subscribe({
+  const id = this.route.snapshot.paramMap.get('id');
+  if (id) {
+    this.tideNodeService.getTideNodeById(+id).subscribe({
       next: (task) => {
       if (task) {
         this.taskForm.patchValue(task);
@@ -63,11 +63,11 @@ export class ModifyListItem  implements OnInit {
   }
 }
 
- onSubmit(): void {
+  onSubmit(): void {
   if (this.taskForm.valid) {
     this.errorMessage = null;
     const task: TideNode = this.taskForm.value;
-    if (task.taskId) {
+    if (task.id) {
       this.tideNodeService.updateTideNode(task).subscribe({
         next: () => {
           this.router.navigate(['/task-list']);
@@ -106,9 +106,9 @@ export class ModifyListItem  implements OnInit {
 
   onDelete(): void {
     this.errorMessage = null;
-    const taskId = this.taskForm.value.taskId;
-    if (taskId) {
-      this.tideNodeService.deleteTideNode(taskId).subscribe({
+    const id = this.taskForm.value.id;
+    if (id) {
+      this.tideNodeService.deleteTideNode(id).subscribe({
         next: () => {
           this.router.navigate(['/task-list']);
         },

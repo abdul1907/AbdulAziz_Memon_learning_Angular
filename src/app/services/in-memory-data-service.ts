@@ -6,7 +6,7 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb(): { tideNodes: TideNode[] } {
     const tideNodes: TideNode[] = [
       {
-        taskId: 1,
+        id: 1,
         taskDescription: 'Complete Angular Test',
         taskPriority: 'high',
         taskDueDate: 'Jan 20, 2025',
@@ -22,7 +22,7 @@ export class InMemoryDataService implements InMemoryDbService {
         isLowTide: false
       },
       {
-        taskId: 2,
+        id: 2,
         taskDescription: 'Study TypeScript basics',
         taskPriority: 'medium',
         taskDueDate: 'Jan 20, 2025',
@@ -38,7 +38,7 @@ export class InMemoryDataService implements InMemoryDbService {
         isLowTide: false
       },
       {
-        taskId: 3,
+        id: 3,
         taskDescription: 'Practice Angular components',
         taskPriority: 'high',
         taskDueDate: 'Jan 20, 2025',
@@ -54,7 +54,7 @@ export class InMemoryDataService implements InMemoryDbService {
         isLowTide: false
       },
       {
-        taskId: 4,
+        id: 4,
         taskDescription: 'Review lecture notes',
         taskPriority: 'low',
         taskDueDate: 'Sep 25, 2025',
@@ -70,7 +70,7 @@ export class InMemoryDataService implements InMemoryDbService {
         isLowTide: true
       },
       {
-        taskId: 5,
+        id: 5,
         taskDescription: 'Prepare for exam',
         taskPriority: 'high',
         taskDueDate: 'Sep 25, 2025',
@@ -86,7 +86,7 @@ export class InMemoryDataService implements InMemoryDbService {
         isLowTide: false
       },
       {
-        taskId: 6,
+        id: 6,
         taskDescription: 'Update project documentation',
         taskPriority: 'medium',
         taskDueDate: 'Sep 25, 2025',
@@ -102,6 +102,6 @@ export class InMemoryDataService implements InMemoryDbService {
         isLowTide: false
       }
     ];
-    return {tideNodes};
+    return { tideNodes };
   }
 }

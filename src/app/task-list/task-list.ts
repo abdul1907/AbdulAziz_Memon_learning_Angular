@@ -37,7 +37,7 @@ export class TaskList implements OnInit {
     
   onDelete(tideNode: TideNode): void {
     this.errorMessage = null;
-    this.tideNodeService.deleteTideNode(tideNode.taskId).subscribe(() => {
+    this.tideNodeService.deleteTideNode(tideNode.id).subscribe(() => {
       this.tideNodeService.getAllTideNodes().subscribe(
         (tideNodes: TideNode[]) => {
           this.tideNodes = tideNodes;
@@ -56,7 +56,7 @@ export class TaskList implements OnInit {
 }
 
   onEdit(tideNode: TideNode): void {
-    this.router.navigate(['/modify-list-item', tideNode.taskId]);
+    this.router.navigate(['/modify-list-item', tideNode.id]);
   }
   
   // Add Button Handling Method - navigates to empty form for creating new task

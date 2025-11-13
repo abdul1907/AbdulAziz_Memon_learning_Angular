@@ -6,7 +6,7 @@
         <!-- Using NgOptimizedImage directive to optimize image loading-->
          <!-- ngSrc: directive overrides the original src attribute of an <img> element-->
 
-        <img [ngSrc]="'images/task-' + ((task.taskId % 2) + 1) + '.png'"
+        <img [ngSrc]="'images/task-' + ((task.id % 2) + 1) + '.png'"
              [alt]="task.taskDescription"
              width="300"
              height="200"
@@ -16,7 +16,7 @@
     <div class="task-content">
         <div class="task-header">
             <h2 class="task-title">{{ task.taskDescription }}</h2>
-            <span class="task-id">#{{ task.taskId }}</span>
+            <span class="task-id">#{{ task.id }}</span>
         </div>
         <div class="task-details">
             <div class="detail-row">

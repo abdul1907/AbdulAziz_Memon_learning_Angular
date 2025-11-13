@@ -5,7 +5,7 @@ import { TideNode } from '../Models/tidenode.interface';
 export const mockTideNodes: TideNode[] = [
   {
     // Task ID: Unique identifier for this task
-    taskId: 1,
+    id: 1,
     
     // Description: What needs to be done
     taskDescription: 'Complete Angular Test',
@@ -49,7 +49,7 @@ export const mockTideNodes: TideNode[] = [
     isLowTide: false
   },
   {
-    taskId: 2,
+    id: 2,
     taskDescription: 'Study TypeScript basics',
     taskPriority: 'medium',
     taskDueDate: 'Jan 20, 2025',
@@ -69,7 +69,7 @@ export const mockTideNodes: TideNode[] = [
     isLowTide: false
   },
   {
-    taskId: 3,
+    id: 3,
     taskDescription: 'Practice Angular components',
     taskPriority: 'high',
     taskDueDate: 'Jan 20, 2025',
@@ -87,7 +87,7 @@ export const mockTideNodes: TideNode[] = [
     isLowTide: false
   },
   {
-    taskId: 4,
+    id: 4,
     taskDescription: 'Review lecture notes',
     taskPriority: 'low',
     taskDueDate: 'Sep 25, 2025',
@@ -104,7 +104,7 @@ export const mockTideNodes: TideNode[] = [
     isLowTide: true
   },
   {
-    taskId: 5,
+    id: 5,
     taskDescription: 'Prepare for exam',
     taskPriority: 'high',
     taskDueDate: 'Sep 25, 2025',
@@ -122,7 +122,7 @@ export const mockTideNodes: TideNode[] = [
     isLowTide: false
   },
   {
-    taskId: 6,
+    id: 6,
     taskDescription: 'Update project documentation',
     taskPriority: 'medium',
     taskDueDate: 'Sep 25, 2025',
