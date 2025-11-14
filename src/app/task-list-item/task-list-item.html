@@ -23,6 +23,9 @@
                 <span class="priority-badge priority-{{ task.taskPriority }}">
                     {{ task.taskPriority | uppercase }}
                 </span>
+                <span class="status-badge" [style.color]="task.status | statusColor">
+                    Status: {{ task.status | uppercase }}
+                </span>
                 <span class="detail-item">
                     <i class="icon">📅</i>
                     {{ task.taskDueDate | date:'fullDate' }}

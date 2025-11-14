@@ -113,6 +113,18 @@
     border: 1px solid #bee5eb;
 }
 
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    display: inline-block;
+}
+
 .detail-item {
     display: flex;
     align-items: center;
