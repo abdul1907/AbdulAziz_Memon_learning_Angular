@@ -4,10 +4,11 @@ import { TideNode } from '../Models/tidenode.interface';
 import { TaskListItem } from "../task-list-item/task-list-item";
 import { TideNodeService } from '../services/tide-node-service';
 import { Router } from "@angular/router";
+import { HoverHighlight } from '../directives/hover-highlight';
 
 @Component({
   selector: 'app-task-list',
-  imports: [TaskListItem, CommonModule],
+  imports: [TaskListItem, CommonModule, HoverHighlight],
   templateUrl: './task-list.html',
   styleUrl: './task-list.css'
 })
