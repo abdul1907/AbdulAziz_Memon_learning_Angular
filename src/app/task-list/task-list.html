@@ -10,6 +10,7 @@
   [class.even-item]="(i % 2) === 0" 
   [class.odd-item]="(i % 2) === 1"
   [appHoverHighlight]="'lightgreen'"
+  [appShowDetailsOnHover]="'ID: ' + tideNode.id + ' | Description: ' + tideNode.taskDescription + ' | Priority: ' + tideNode.taskPriority + ' | Status: ' + tideNode.status + ' | Category: ' + tideNode.category + ' | Due Date: ' + tideNode.taskDueDate + ' | Effort: ' + tideNode.taskEffort + 'h' + (tideNode.taskShiftReason ? ' | Shift Reason: ' + tideNode.taskShiftReason : '')"
   (click)="onTaskClick(tideNode)">
   <app-task-list-item [task]="tideNode"></app-task-list-item>
 
