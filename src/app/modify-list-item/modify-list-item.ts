@@ -4,10 +4,11 @@ import { TideNode } from '../Models/tidenode.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TideNodeService } from '../services/tide-node-service';
 import { CommonModule } from '@angular/common';
+import { HighlightOnFocus } from '../directives/highlight-on-focus';
 
 @Component({
   selector: 'app-modify-list-item',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, HighlightOnFocus],
   templateUrl: './modify-list-item.html',
   styleUrl: './modify-list-item.css'
 })

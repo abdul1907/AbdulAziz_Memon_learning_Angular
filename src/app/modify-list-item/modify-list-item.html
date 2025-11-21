@@ -5,19 +5,19 @@
     <!-- ID Field -->
     <div class="form-group">
         <label for="id">Task ID:</label>
-        <input type="number" id="id" formControlName="id" />
+        <input type="number" id="id" formControlName="id" [appHighlightOnFocus]="'lightblue'"/>
     </div>
 
     <!-- Description Field -->
     <div class="form-group">
         <label for="taskDescription">Task Description:</label>
-        <input type="text" id="taskDescription" formControlName="taskDescription" placeholder="Enter task description"/>
+        <input type="text" id="taskDescription" formControlName="taskDescription" placeholder="Enter task description" [appHighlightOnFocus]="'lightyellow'"/>
     </div>
 
     <!-- Priority Field -->
     <div class="form-group">
         <label for="taskPriority">Task Priority:</label>
-        <select id="taskPriority" formControlName="taskPriority">
+        <select id="taskPriority" formControlName="taskPriority" [appHighlightOnFocus]="'lightgreen'">
             <option value="low">Low</option>
             <option value="medium">Medium</option>
             <option value="high">High</option>
@@ -27,25 +27,25 @@
     <!-- Due Date Field -->
     <div class="form-group">
         <label for="taskDueDate">Task Due Date:</label>
-        <input type="date" id="taskDueDate" formControlName="taskDueDate" placeholder="Enter Date in YYYY-MM-DD format"/>
+        <input type="date" id="taskDueDate" formControlName="taskDueDate" placeholder="Enter Date in YYYY-MM-DD format" [appHighlightOnFocus]="'lightpink'"/>
     </div>
 
     <!-- Effort Field -->
     <div class="form-group">
         <label for="taskEffort">Task Effort:</label>
-        <input type="number" id="taskEffort" formControlName="taskEffort" placeholder="Enter task effort between 1 and 10"/>
+        <input type="number" id="taskEffort" formControlName="taskEffort" placeholder="Enter task effort between 1 and 10" [appHighlightOnFocus]="'lightgray'"/>
     </div>
 
     <!-- Category Field -->
     <div class="form-group">
         <label for="category">Category :</label>
-        <input type="text" id="Category" formControlName="category" placeholder="Enter Category of the task"/>
+        <input type="text" id="Category" formControlName="category" placeholder="Enter Category of the task" [appHighlightOnFocus]="'lightyellow'"/>
     </div>
 
     <!-- Status Field -->
     <div class="form-group">
         <label for="status">Status:</label>
-        <select id="status" formControlName="status">
+        <select id="status" formControlName="status" [appHighlightOnFocus]="'lightblue'">
             <option value="active">Active</option>
             <option value="completed">Completed</option>
             <option value="deferred">Deferred</option>
@@ -57,23 +57,23 @@
     <!-- Shift Reason Field -->
     <div class="form-group">
         <label for="taskShiftReason">Task Shift Reason (Optional):</label>
-        <textarea id="taskShiftReason" formControlName="taskShiftReason" placeholder="Enter the reason why the task you want to  shift"></textarea>
+        <textarea id="taskShiftReason" formControlName="taskShiftReason" placeholder="Enter the reason why the task you want to  shift" [appHighlightOnFocus]="'lightcoral'"></textarea>
     </div>
 
     <!-- Tags Field --> 
     <div class="form-group">
         <label for="tags">Tags (Optional):</label>
-        <input type="text" id="tags" formControlName="tags" placeholder="Enter tags for the task with (,) separated"/>
+        <input type="text" id="tags" formControlName="tags" placeholder="Enter tags for the task with (,) separated" [appHighlightOnFocus]="'lightorange'"/>
     </div>
 
     <!-- Task Image Field -->
      <div class="form-group">
         <label for="taskImage">Task Image (Optional):</label>
-        <input type="file" id="taskImage" formControlName="taskImage" placeholder="Upload an image for the task"/>
+        <input type="file" id="taskImage" formControlName="taskImage" placeholder="Upload an image for the task" [appHighlightOnFocus]="'lightgray'"/>
      </div>
 
      <!-- Buttons -->
-      <button type="submit">Submit</button>
-      <button type="button" (click)="onReset()">Reset</button>
+      <button type="submit" [appHighlightOnFocus]="'lightblue'">Submit</button>
+      <button type="button" (click)="onReset()" [appHighlightOnFocus]="'lightgreen'">Reset</button>
     
 </form>

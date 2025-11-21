@@ -2,14 +2,14 @@
 
 <!-- Add Task Button -->
 <div style="margin: 10px 0; text-align: right;">
-  <button type="button" [appHoverHighlight]="'lightblue'" (click)="onAdd()">Add Task</button>
+  <button type="button" [appHoverHighlight]="'purple'" (click)="onAdd()">Add Task</button>
 </div>
 
 @for (tideNode of tideNodes; track tideNode.id; let i = $index) {
   <div class="list-item" 
   [class.even-item]="(i % 2) === 0" 
   [class.odd-item]="(i % 2) === 1"
-  [appHoverHighlight]="'lightblue'"
+  [appHoverHighlight]="'lightgreen'"
   (click)="onTaskClick(tideNode)">
   <app-task-list-item [task]="tideNode"></app-task-list-item>
 
