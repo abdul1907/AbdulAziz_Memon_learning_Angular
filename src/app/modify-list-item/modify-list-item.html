@@ -3,77 +3,77 @@
 <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
 
     <!-- ID Field -->
-    <div class="form-group">
-        <label for="id">Task ID:</label>
-        <input type="number" id="id" formControlName="id" [appHighlightOnFocus]="'lightblue'"/>
-    </div>
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Task ID</mat-label>
+        <input matInput type="number" id="id" formControlName="id" [appHighlightOnFocus]="'lightblue'"/>
+    </mat-form-field>
 
     <!-- Description Field -->
-    <div class="form-group">
-        <label for="taskDescription">Task Description:</label>
-        <input type="text" id="taskDescription" formControlName="taskDescription" placeholder="Enter task description" [appHighlightOnFocus]="'lightyellow'"/>
-    </div>
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Task Description</mat-label>
+        <input matInput type="text" id="taskDescription" formControlName="taskDescription" placeholder="Enter task description" [appHighlightOnFocus]="'lightyellow'"/>
+    </mat-form-field>
 
     <!-- Priority Field -->
-    <div class="form-group">
-        <label for="taskPriority">Task Priority:</label>
-        <select id="taskPriority" formControlName="taskPriority" [appHighlightOnFocus]="'lightgreen'">
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-        </select>
-    </div>
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label >Task Priority:</mat-label>
+        <mat-select id="taskPriority" formControlName="taskPriority" [appHighlightOnFocus]="'lightgreen'">
+            <mat-option value="low">Low</mat-option>
+            <mat-option value="medium">Medium</mat-option>
+            <mat-option value="high">High</mat-option>
+        </mat-select>
+    </mat-form-field>
 
     <!-- Due Date Field -->
-    <div class="form-group">
-        <label for="taskDueDate">Task Due Date:</label>
-        <input type="date" id="taskDueDate" formControlName="taskDueDate" placeholder="Enter Date in YYYY-MM-DD format" [appHighlightOnFocus]="'lightpink'"/>
-    </div>
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Task Due Date:</mat-label>
+        <input matInput type="date" id="taskDueDate" formControlName="taskDueDate" placeholder="Enter Date in YYYY-MM-DD format" [appHighlightOnFocus]="'lightpink'"/>
+    </mat-form-field>
 
     <!-- Effort Field -->
-    <div class="form-group">
-        <label for="taskEffort">Task Effort:</label>
-        <input type="number" id="taskEffort" formControlName="taskEffort" placeholder="Enter task effort between 1 and 10" [appHighlightOnFocus]="'lightgray'"/>
-    </div>
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label >Task Effort:</mat-label>
+        <input matInput type="number" id="taskEffort" formControlName="taskEffort" placeholder="Enter task effort between 1 and 10" [appHighlightOnFocus]="'lightgray'"/>
+    </mat-form-field>
 
     <!-- Category Field -->
-    <div class="form-group">
-        <label for="category">Category :</label>
-        <input type="text" id="Category" formControlName="category" placeholder="Enter Category of the task" [appHighlightOnFocus]="'lightyellow'"/>
-    </div>
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Category :</mat-label>
+        <input matInput type="text" id="Category" formControlName="category" placeholder="Enter Category of the task" [appHighlightOnFocus]="'lightyellow'"/>
+    </mat-form-field>
 
     <!-- Status Field -->
-    <div class="form-group">
-        <label for="status">Status:</label>
-        <select id="status" formControlName="status" [appHighlightOnFocus]="'lightblue'">
-            <option value="active">Active</option>
-            <option value="completed">Completed</option>
-            <option value="deferred">Deferred</option>
-            <option value="cancelled">Cancelled</option>
-        </select>
-    </div>
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Status:</mat-label>
+        <mat-select id="status" formControlName="status" [appHighlightOnFocus]="'lightblue'">
+            <mat-option value="active">Active</mat-option>
+            <mat-option value="completed">Completed</mat-option>
+            <mat-option value="deferred">Deferred</mat-option>
+            <mat-option value="cancelled">Cancelled</mat-option>
+        </mat-select>
+    </mat-form-field>
 
 
     <!-- Shift Reason Field -->
-    <div class="form-group">
-        <label for="taskShiftReason">Task Shift Reason (Optional):</label>
-        <textarea id="taskShiftReason" formControlName="taskShiftReason" placeholder="Enter the reason why the task you want to  shift" [appHighlightOnFocus]="'lightcoral'"></textarea>
-    </div>
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Task Shift Reason (Optional):</mat-label>
+        <textarea matInput id="taskShiftReason" formControlName="taskShiftReason" placeholder="Enter the reason why the task you want to  shift" [appHighlightOnFocus]="'lightcoral'"></textarea>
+    </mat-form-field>
 
     <!-- Tags Field --> 
-    <div class="form-group">
-        <label for="tags">Tags (Optional):</label>
-        <input type="text" id="tags" formControlName="tags" placeholder="Enter tags for the task with (,) separated" [appHighlightOnFocus]="'lightorange'"/>
-    </div>
+    <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Tags (Optional):</mat-label>
+        <input matInput type="text" id="tags" formControlName="tags" placeholder="Enter tags for the task with (,) separated" [appHighlightOnFocus]="'lightorange'"/>
+    </mat-form-field>
 
     <!-- Task Image Field -->
-     <div class="form-group">
+     <div class="form-field">
         <label for="taskImage">Task Image (Optional):</label>
-        <input type="file" id="taskImage" formControlName="taskImage" placeholder="Upload an image for the task" [appHighlightOnFocus]="'lightgray'"/>
+        <input type="file" id="taskImage" formControlName="taskImage" [appHighlightOnFocus]="'lightgray'"/>
      </div>
 
      <!-- Buttons -->
-      <button type="submit" [appHighlightOnFocus]="'lightblue'">Submit</button>
-      <button type="button" (click)="onReset()" [appHighlightOnFocus]="'lightgreen'">Reset</button>
+      <button mat-raised-button type="submit" color="primary" [appHighlightOnFocus]="'lightblue'">Submit</button>
+      <button mat-button type="button" (click)="onReset()" [appHighlightOnFocus]="'lightgreen'">Reset</button>
     
 </form>

@@ -5,10 +5,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TideNodeService } from '../services/tide-node-service';
 import { CommonModule } from '@angular/common';
 import { HighlightOnFocus } from '../directives/highlight-on-focus';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-modify-list-item',
-  imports: [ReactiveFormsModule, CommonModule, HighlightOnFocus],
+  imports: [ReactiveFormsModule, CommonModule, HighlightOnFocus, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule],
   templateUrl: './modify-list-item.html',
   styleUrl: './modify-list-item.css'
 })

@@ -6,10 +6,14 @@ import { TideNodeService } from '../services/tide-node-service';
 import { Router } from "@angular/router";
 import { HoverHighlight } from '../directives/hover-highlight';
 import { ShowDetailsOnHover } from '../directives/show-details-on-hover';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-task-list',
-  imports: [TaskListItem, CommonModule, HoverHighlight, ShowDetailsOnHover],
+  imports: [TaskListItem, CommonModule, HoverHighlight, ShowDetailsOnHover, MatButtonModule, MatIconModule, MatDividerModule, MatCardModule],
   templateUrl: './task-list.html',
   styleUrl: './task-list.css'
 })

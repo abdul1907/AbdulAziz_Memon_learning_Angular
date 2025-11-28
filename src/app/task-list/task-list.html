@@ -1,21 +1,39 @@
-<div *ngIf="errorMessage" class="error-message">{{errorMessage}}</div>
+<mat-card *ngIf="errorMessage" class="error-message"> 
+  <mat-card-content>
+    {{errorMessage}}
+  </mat-card-content>
+</mat-card>
 
-<!-- Add Task Button -->
-<div style="margin: 10px 0; text-align: right;">
-  <button type="button" [appHoverHighlight]="'purple'" (click)="onAdd()">Add Task</button>
-</div>
+<!-- Header Card with Title and Add Button -->
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>All Tasks - Click any task to select it</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-button color="primary" [appHoverHighlight]="'purple'" (click)="onAdd()">
+      <mat-icon>add</mat-icon> Add Task
+    </button>
+  </mat-card-content>
+</mat-card>
 
+<mat-divider></mat-divider>
+
+<div class="task-list-container">
 @for (tideNode of tideNodes; track tideNode.id; let i = $index) {
-  <div class="list-item" 
-  [class.even-item]="(i % 2) === 0" 
-  [class.odd-item]="(i % 2) === 1"
-  [appHoverHighlight]="'lightgreen'"
-  [appShowDetailsOnHover]="'ID: ' + tideNode.id + ' | Description: ' + tideNode.taskDescription + ' | Priority: ' + tideNode.taskPriority + ' | Status: ' + tideNode.status + ' | Category: ' + tideNode.category + ' | Due Date: ' + tideNode.taskDueDate + ' | Effort: ' + tideNode.taskEffort + 'h' + (tideNode.taskShiftReason ? ' | Shift Reason: ' + tideNode.taskShiftReason : '')"
-  (click)="onTaskClick(tideNode)">
-  <app-task-list-item [task]="tideNode"></app-task-list-item>
-
-  <!--Edit and Delete Buttons-->
-  <button type="button" [appHoverHighlight]="'green'" (click)="onEdit(tideNode)">Edit</button>
-  <button type="button" [appHoverHighlight]="'red'" (click)="onDelete(tideNode)">Delete</button>
+  <div class="task-item-wrapper"
+       [class.even-item]="(i % 2) === 0" 
+       [class.odd-item]="(i % 2) === 1"
+       [appHoverHighlight]="'lightgreen'"
+       [appShowDetailsOnHover]="'ID: ' + tideNode.id + ' | Description: ' + tideNode.taskDescription + ' | Priority: ' + tideNode.taskPriority + ' | Status: ' + tideNode.status + ' | Category: ' + tideNode.category + ' | Due Date: ' + tideNode.taskDueDate + ' | Effort: ' + tideNode.taskEffort + 'h' + (tideNode.taskShiftReason ? ' | Shift Reason: ' + tideNode.taskShiftReason : '')">
+    <div (click)="onTaskClick(tideNode)">
+      <app-task-list-item [task]="tideNode"></app-task-list-item>
+    </div>
+    
+    <!--Edit and Delete Buttons-->
+    <div class="action-buttons">
+      <button mat-button [appHoverHighlight]="'green'" (click)="onEdit(tideNode)">Edit</button>
+      <button mat-button [appHoverHighlight]="'red'" (click)="onDelete(tideNode)">Delete</button>
+    </div>
   </div>
 }
+</div>
